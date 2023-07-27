@@ -1,0 +1,349 @@
+@use "./reset";
+
+:root {
+  // Colors
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+  --shadow: hsla(232, 13%, 33%, 0.1);
+  --white: hsl(0, 0%, 100%);
+
+  // Linear Gradients
+  --linear-gradient-start: hsl(236, 72%, 79%);
+  --linear-gradient-end: hsl(237, 63%, 64%);
+
+  // Fonts
+  --font-family: "Montserrat", sans-serif;
+  --font-base: 0.9375rem;
+  --fw-700: 700;
+
+  // Width
+  --max-width: 25rem;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--fw-700);
+
+  min-height: 100vh;
+
+  background-color: var(--very-light-grayish-blue);
+
+  padding: 3rem 1.25rem;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+
+  display: inline-block;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+
+  width: 10.9375rem;
+  height: 34.375rem;
+
+  background-image: url(../../bg-top.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.main__title {
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  font-weight: var(--fw-700);
+  color: var(--grayish-blue);
+  text-align: center;
+}
+
+.base__font {
+  font-size: 1rem;
+  color: var(--grayish-blue);
+}
+
+.sm__font {
+  font-size: var(--font-base);
+  color: var(--light-grayish-blue);
+  text-transform: capitalize;
+}
+
+.price {
+  font-size: clamp(3.125rem, 5vw + 1rem, 4rem);
+  font-weight: var(--fw-700);
+  line-height: 1.1;
+  color: var(--dark-grayish-blue);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dollar-sign {
+  font-size: 2rem;
+  font-weight: var(--fw-700);
+}
+
+.btn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+
+  width: 100%;
+
+  font-size: var(--font-base);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  color: var(--very-light-grayish-blue);
+
+  background: linear-gradient(
+    to right,
+    var(--linear-gradient-start),
+    var(--linear-gradient-end)
+  );
+  border-radius: 0.25rem;
+  border: 0.0625rem solid var(--linear-gradient-start);
+
+  padding: 0.75rem 0;
+
+  transition: background 300ms ease-out, color 200ms ease-in-out;
+  cursor: pointer;
+
+  &:is(:hover, :focus) {
+    background-image: none;
+    border: 0.0625rem solid var(--linear-gradient-end);
+    color: var(--linear-gradient-end);
+  }
+}
+
+//====================
+// 			Checkbox
+//====================
+
+.checkbox-container {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-block-start: 2rem;
+}
+
+.checkbox {
+  width: 3.125rem;
+  height: 1.875rem;
+
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(
+    to right,
+    var(--linear-gradient-start),
+    var(--linear-gradient-end)
+  );
+  border-radius: 3rem;
+
+  padding: 0.25rem 0.3125rem;
+
+  transition: 350ms ease-in-out;
+  cursor: pointer;
+
+  & .checkbox-toggle {
+    height: 1.375rem;
+    width: 1.375rem;
+
+    background-color: var(--white);
+    border-radius: 50%;
+    transition: 350ms ease-in-out;
+  }
+}
+
+.checkbox.active .checkbox-toggle {
+  transform: translateX(1.125rem);
+  transition: 350ms ease-in-out;
+}
+
+//==========================
+// 			Card Container
+//==========================
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  margin-block-start: 2.5rem;
+}
+
+.card {
+  width: min(100%, var(--max-width));
+  text-align: center;
+
+  background: var(--white);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.3125rem 1.25rem 0.9375rem var(--shadow);
+
+  margin-inline: auto;
+  padding: 2.1875rem 1.25rem 1.875rem;
+}
+
+.card:nth-child(2) {
+  background-image: linear-gradient(
+    to bottom,
+    var(--linear-gradient-start),
+    var(--linear-gradient-end)
+  );
+
+  & > * {
+    color: var(--white);
+  }
+
+  .card__table > * {
+    color: var(--white);
+  }
+
+  & .btn {
+    border: 0.0625rem solid var(--white);
+    background-image: none;
+    background-color: var(--white);
+
+    color: var(--linear-gradient-end);
+
+    &:is(:hover, :focus) {
+      background: none;
+      color: var(--white);
+    }
+  }
+}
+
+.card > * + * {
+  margin-block-start: 2rem;
+}
+
+.card__table {
+  display: flex;
+  flex-direction: column;
+
+  border-top: 0.0625rem solid var(--light-grayish-blue);
+  border-bottom: 0.0625rem solid var(--light-grayish-blue);
+
+  & .base__font:nth-child(2) {
+    border-top: 0.0625rem solid var(--light-grayish-blue);
+    border-bottom: 0.0625rem solid var(--light-grayish-blue);
+  }
+
+  & > * {
+    padding: 0.875rem 0;
+  }
+}
+
+//=================
+// 			Footer
+//=================
+
+.attribution {
+  text-align: center;
+  margin-block-start: 3rem;
+
+  & p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--grayish-blue);
+
+    & span {
+      font-size: 1.75rem;
+      color: var(--linear-gradient-end);
+    }
+  }
+
+  & a {
+    font-size: 1.25rem;
+    font-weight: var(--fw-700);
+    color: var(--linear-gradient-end);
+
+    transition: 250ms ease-in-out;
+
+    &:is(:hover, :focus) {
+      text-decoration: underline;
+    }
+  }
+}
+
+//=============================
+// 			Responsive 1160px
+//=============================
+
+@media only screen and (min-width: 72.5rem) {
+  body {
+    display: grid;
+    place-items: center;
+
+    padding: 0 1rem;
+  }
+
+  body::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    width: 23.4375rem;
+    height: 41.125rem;
+  }
+
+  body::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 22.0625rem;
+    height: 19rem;
+
+    background-image: url(../../bg-bottom.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .card-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+
+    margin-block-start: 3.75rem;
+  }
+
+  .card {
+    width: 23.4375rem;
+    margin: 0;
+  }
+
+  .card:nth-child(1) {
+    padding: 2.5rem 2.8125rem 1.875rem 1.875rem;
+  }
+
+  .card:nth-child(2) {
+    transform: scale(1.08);
+    box-shadow: none;
+
+    padding: 3rem 1.875rem;
+  }
+
+  .card:nth-child(3) {
+    padding: 2.5rem 1.875rem 1.875rem 2.8125rem;
+  }
+}
