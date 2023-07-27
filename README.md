@@ -58,8 +58,8 @@ There is the Screenshot of my work!
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL here](https://www.frontendmentor.io/solutions/pricing-component-with-toggle-button-responsive-vue-js-sass-iwm53wjD0m)
+- Live Site URL: [Live site URL here](https://fem-pricing-component-with-toggle-eta.vercel.app/)
 
 ## Author
 
