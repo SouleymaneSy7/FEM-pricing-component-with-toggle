@@ -47,7 +47,7 @@ body::before {
   width: 10.9375rem;
   height: 34.375rem;
 
-  background-image: url(../../bg-top.svg);
+  background-image: url(../assets/bg-top.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -313,7 +313,7 @@ body::before {
     width: 22.0625rem;
     height: 19rem;
 
-    background-image: url(../../bg-bottom.svg);
+    background-image: url(../assets/bg-bottom.svg);
     background-size: cover;
     background-repeat: no-repeat;
   }
